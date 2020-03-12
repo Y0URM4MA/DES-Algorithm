@@ -7,7 +7,7 @@
 std::string Des::compressKey(const std::string key) //the first permutation to the key.
 {
 	std::string compKey{ "" };
-	const int pc1[56] = {
+	const int const pc1[56] = {
 	57,49,41,33,25,17,9,
 	1,58,50,42,34,26,18,
 	10,2,59,51,43,35,27,
@@ -62,7 +62,7 @@ std::string* Des::mergeKeys(const std::string* c,const std::string* d) //merging
 std::string* Des::secondPermutaion(const std::string* keys) //applying the second permutaion to every subkey, every subkey becomes 48 bit long.
 {
 	std::string* newKeys{ new std::string[16] };
-	int pc2[48] = { 14, 17, 11, 24, 1, 5,
+	const int const pc2[48] = { 14, 17, 11, 24, 1, 5,
 				  3, 28, 15, 6, 21, 10,
 				  23, 19, 12, 4, 26, 8,
 				  16, 7, 27, 20, 13, 2,
@@ -83,7 +83,7 @@ std::string* Des::secondPermutaion(const std::string* keys) //applying the secon
 
 std::string Des::inintialPermutation(const std::string message) //The first permutation to the message we want to decrypt;
 {
-	int arr[64] = { 58, 50, 42, 34, 26, 18, 10, 2,
+	const int const arr[64] = { 58, 50, 42, 34, 26, 18, 10, 2,
 					60, 52, 44, 36, 28, 20, 12, 4,
 					62, 54, 46, 38, 30, 22, 14, 6,
 					64, 56, 48, 40, 32, 24, 16, 8,
@@ -131,7 +131,7 @@ std::string Des::finalIterations(const std::string left, const std::string right
 std::string Des::finalPermutation(const std::string str)
 {
 	std::string finalStr{ "" };
-	int arr[64]{ 40,8,48,16,56,24,64,32,
+	const int const arr[64]{ 40,8,48,16,56,24,64,32,
 				 39,7,47,15,55,23,63,31,
 				 38,6,46,14,54,22,62,30,
 				 37,5,45,13,53,21,61,29,

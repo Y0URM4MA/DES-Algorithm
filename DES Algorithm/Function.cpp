@@ -4,7 +4,7 @@
 std::string Function::eBit(const std::string string)//permuting the R(n-1) and making it 48 bit long from 32 bit length by repeating some bits
 {
 	std::string s{ "" };
-	const int arr[48]{ 32, 1, 2, 3, 4, 5,
+	const int const arr[48]{ 32, 1, 2, 3, 4, 5,
 				 4, 5, 6, 7, 8, 9,
 				 8, 9, 10, 11, 12, 13,
 				 12, 13, 14, 15, 16, 17,
@@ -20,7 +20,7 @@ std::string Function::eBit(const std::string string)//permuting the R(n-1) and m
 
 std::string Function::sBoxes(const std::string s)
 {
-	const int subBoxes[8][4][16] =
+	const int const subBoxes[8][4][16] =
 	{ {
 		{14,4,13,1,2,15,11,8,3,10,6,12,5,9,0,7},
 		{0,15,7,4,14,2,13,1,10,6,12,11,9,5,3,8},
@@ -186,7 +186,7 @@ std::string Function::intToBinary(const int num)
 std::string Function::pPermutation(const std::string s)
 {	
 	std::string newString{ "" };
-	const int arr[32]{ 16, 7, 20, 21,
+	const int const arr[32]{ 16, 7, 20, 21,
 				 29, 12, 28, 17,
 				 1, 15, 23, 26,
 				 5, 18, 31, 10,
