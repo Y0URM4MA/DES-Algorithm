@@ -4,7 +4,7 @@
 #include "Function.h"
 
 
-std::string Des::compressKey(std::string key) //the first permutation to the key.
+std::string Des::compressKey(const std::string key) //the first permutation to the key.
 {
 	std::string compKey{ "" };
 	const int pc1[56] = {
@@ -23,7 +23,7 @@ std::string Des::compressKey(std::string key) //the first permutation to the key
 	return compKey;
 }
 
-std::string Des::leftShift(std::string str) //function that "rotates the string to the left (left shift)" once.
+std::string Des::leftShift(const std::string str) //function that "rotates the string to the left (left shift)" once.
 {
 	std::string shifted{ "" };
 	for (int i = 1; i < 28; i++) {
@@ -49,7 +49,7 @@ std::string* Des::cdCreation(std::string key) //this funciton creates the 16 sub
 	return cd;
 }
 
-std::string* Des::mergeKeys(std::string* c, std::string* d) //merging the two halves of the shifted keys to one 56 bit keys.(C1 and D1 will merge into K1)
+std::string* Des::mergeKeys(const std::string* c,const std::string* d) //merging the two halves of the shifted keys to one 56 bit keys.(C1 and D1 will merge into K1)
 {
 	std::string* keys{ new std::string[16] };
 	for (int i = 0; i < 16; i++)
@@ -59,7 +59,7 @@ std::string* Des::mergeKeys(std::string* c, std::string* d) //merging the two ha
 	return keys;
 }
 
-std::string* Des::secondPermutaion(std::string* keys) //applying the second permutaion to every subkey, every subkey becomes 48 bit long.
+std::string* Des::secondPermutaion(const std::string* keys) //applying the second permutaion to every subkey, every subkey becomes 48 bit long.
 {
 	std::string* newKeys{ new std::string[16] };
 	int pc2[48] = { 14, 17, 11, 24, 1, 5,
@@ -81,7 +81,7 @@ std::string* Des::secondPermutaion(std::string* keys) //applying the second perm
 	return newKeys;
 }
 
-std::string Des::inintialPermutation(std::string message) //The first permutation to the message we want to decrypt;
+std::string Des::inintialPermutation(const std::string message) //The first permutation to the message we want to decrypt;
 {
 	int arr[64] = { 58, 50, 42, 34, 26, 18, 10, 2,
 					60, 52, 44, 36, 28, 20, 12, 4,
@@ -98,7 +98,7 @@ std::string Des::inintialPermutation(std::string message) //The first permutatio
 	return ip;
 }
 
-std::string Des::twoStringXor(std::string a, std::string b) //"xoring" two string assuming they have the same legnth and they are only zeros and ones.
+std::string Des::twoStringXor(const std::string a, const std::string b) //"xoring" two string assuming they have the same legnth and they are only zeros and ones.
 {
 	std::string xored{ "" };
 	for (int i = 0; i < a.size(); i++) {
@@ -113,7 +113,7 @@ std::string Des::twoStringXor(std::string a, std::string b) //"xoring" two strin
 	return xored;
 }
 
-std::string Des::finalIterations(std::string left, std::string right, std::string* keys)
+std::string Des::finalIterations(const std::string left, const std::string right, const std::string* keys)
 {
 	std::string finalStr{ "" };
 	std::string lefts[17]{ left };
@@ -128,7 +128,7 @@ std::string Des::finalIterations(std::string left, std::string right, std::strin
 	return finalStr;
 }
 
-std::string Des::finalPermutation(std::string str)
+std::string Des::finalPermutation(const std::string str)
 {
 	std::string finalStr{ "" };
 	int arr[64]{ 40,8,48,16,56,24,64,32,
@@ -171,7 +171,7 @@ std::string Des::fullDes(std::string msg, std::string key) //the final function 
 	return encrypted;
 }
 
-std::string* Des::invertKeys(std::string* keys)//function to invert the array in order to use the keys in the opposite way for decryption form K16 to K1.
+std::string* Des::invertKeys(const std::string* keys)//function to invert the array in order to use the keys in the opposite way for decryption form K16 to K1.
 {
 	std::string* newKeys{ new std::string[16] };
 	for (int i = 0; i < 16; i++) {

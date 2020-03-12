@@ -4,7 +4,7 @@
 #include<string>
 
 
-std::string UI::binaryToHexString(std::string bs)
+std::string UI::binaryToHexString(const std::string bs)
 {
 	std::string char4;
 	std::string output{ "" };
@@ -62,7 +62,7 @@ std::string UI::binaryToHexString(std::string bs)
 	return output;
 }
 
-std::string UI::HexToBinaryString(std::string hs)
+std::string UI::HexToBinaryString(const std::string hs)
 {
 	std::string output{ "" };
 	std::string tmp;

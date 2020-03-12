@@ -1,10 +1,10 @@
 #include "Function.h"
-#include "Header.h"
+#include "DesAlgo.h"
 
-std::string Function::eBit(std::string string)//permuting the R(n-1) and making it 48 bit long from 32 bit length by repeating some bits
+std::string Function::eBit(const std::string string)//permuting the R(n-1) and making it 48 bit long from 32 bit length by repeating some bits
 {
 	std::string s{ "" };
-	int arr[48]{ 32, 1, 2, 3, 4, 5,
+	const int arr[48]{ 32, 1, 2, 3, 4, 5,
 				 4, 5, 6, 7, 8, 9,
 				 8, 9, 10, 11, 12, 13,
 				 12, 13, 14, 15, 16, 17,
@@ -18,9 +18,9 @@ std::string Function::eBit(std::string string)//permuting the R(n-1) and making 
 	return s;
 }
 
-std::string Function::sBoxes(std::string s)
+std::string Function::sBoxes(const std::string s)
 {
-	int subBoxes[8][4][16] =
+	const int subBoxes[8][4][16] =
 	{ {
 		{14,4,13,1,2,15,11,8,3,10,6,12,5,9,0,7},
 		{0,15,7,4,14,2,13,1,10,6,12,11,9,5,3,8},
@@ -101,7 +101,7 @@ std::string Function::sBoxes(std::string s)
 	return output;
 }
 
-int Function::binaryToInt(std::string s)
+int Function::binaryToInt(const std::string s)
 {
 	if (s.compare("00") == 0)
 		return 0;
@@ -146,7 +146,7 @@ int Function::binaryToInt(std::string s)
 
 }
 
-std::string Function::intToBinary(int num)
+std::string Function::intToBinary(const int num)
 {
 	if (num == 0)
 		return "0000";
@@ -183,10 +183,10 @@ std::string Function::intToBinary(int num)
 
 }
 
-std::string Function::pPermutation(std::string s)
+std::string Function::pPermutation(const std::string s)
 {	
 	std::string newString{ "" };
-	int arr[32]{ 16, 7, 20, 21,
+	const int arr[32]{ 16, 7, 20, 21,
 				 29, 12, 28, 17,
 				 1, 15, 23, 26,
 				 5, 18, 31, 10,
@@ -200,7 +200,7 @@ std::string Function::pPermutation(std::string s)
 	return newString;
 }
 
-std::string Function::fullFunc(std::string s,std::string key) //input is Rn-1 and Kn and it return the combintaion of all functions that makes the F function.
+std::string Function::fullFunc(const std::string s,const std::string key) //input is Rn-1 and Kn and it return the combintaion of all functions that makes the F function.
 {	
 	return Function::pPermutation(Function::sBoxes(Des::twoStringXor(key, Function::eBit(s))));
 }

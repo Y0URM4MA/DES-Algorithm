@@ -5,7 +5,7 @@
 class UI {
 
 public:
-	static std::string binaryToHexString(std::string bs);
-	static std::string HexToBinaryString(std::string words);
+	static std::string binaryToHexString(const std::string bs);
+	static std::string HexToBinaryString(const std::string words);
 	static void startingMsg();
 };
