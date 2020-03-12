@@ -50,6 +50,7 @@ int main() {
 				}
 				std::cout << "The decrypted message is: " << std::flush;
 				std::cout << UI::binaryToHexString(Des::fullDecryption(UI::HexToBinaryString(s), UI::HexToBinaryString(key))) << std::endl;
+				break;
 			}
 		}
 		else if (choice == 3) {
